@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://menotti.pro.br/aoc/</loc>
+         <lastmod>2025-09-09</lastmod>
+    </url>
+    <url>
+         <loc>https://menotti.pro.br/aoc/labs/</loc>
+         <lastmod>2025-09-09</lastmod>
+    </url>
+    <url>
+         <loc>https://menotti.pro.br/aoc/labs/01-banner/</loc>
+         <lastmod>2025-09-09</lastmod>
+    </url>
+    <url>
+         <loc>https://menotti.pro.br/aoc/labs/02-decode-game/</loc>
+         <lastmod>2025-09-09</lastmod>
+    </url>
+</urlset>
