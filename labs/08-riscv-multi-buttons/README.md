@@ -21,12 +21,12 @@ O esquema de E/S mapeado em memória, [fornecido anteriormente](https://github.c
   localparam IO_KEY_bit  = 4; // 0x0000_0110 
   localparam IO_SW_bit   = 5; // 0x0000_0120
   reg [23:0] hex_digits; // memory-mapped I/O register for HEX
-  dec9segs hex0(hex_digits[ 3: 0], HEX0);
-  dec9segs hex1(hex_digits[ 7: 4], HEX1);
-  dec9segs hex2(hex_digits[11: 8], HEX2);
-  dec9segs hex3(hex_digits[15:12], HEX3);
-  dec9segs hex4(hex_digits[19:16], HEX4);
-  dec9segs hex5(hex_digits[23:20], HEX5);
+  dec7seg hex0(hex_digits[ 3: 0], HEX0);
+  dec7seg hex1(hex_digits[ 7: 4], HEX1);
+  dec7seg hex2(hex_digits[11: 8], HEX2);
+  dec7seg hex3(hex_digits[15:12], HEX3);
+  dec7seg hex4(hex_digits[19:16], HEX4);
+  dec7seg hex5(hex_digits[23:20], HEX5);
   always @(posedge clk)
     if (memwrite & isIO) begin // I/O write 
       if (addr[IO_LEDS_bit])
