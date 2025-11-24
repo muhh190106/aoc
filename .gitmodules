@@ -22,3 +22,6 @@
 [submodule "sim/07-riscv-multi"]
 	path = sim/07-riscv-multi
 	url = git@github.com:DC-UFSCar/riscv-multi.git
+[submodule "sim/09-riscv-pipeline"]
+	path = sim/09-riscv-pipeline
+	url = git@github.com:DC-UFSCar/riscv-pipeline.git
