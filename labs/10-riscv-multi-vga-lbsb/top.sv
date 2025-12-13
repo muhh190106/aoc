@@ -11,7 +11,11 @@ module top #(parameter VGA_BITS = 8) (
   wire VGA_DA; // In display area
   
   wire memwrite, clk, reset;
-  wire [31:0] pc, instr;
+  
+  // NOVOS FIOS PARA AS PORTAS QUE FALTAVAM
+  wire mem_rstrb;
+  wire [3:0] mem_wmask;
+
   wire [31:0] writedata, addr, readdata;
   wire [31:0] vaddr, vdata;
   wire [ 7:0] vbyte = vaddr[1] ? (vaddr[0] ? vdata[31:24] : vdata[23:16])
@@ -33,9 +37,22 @@ module top #(parameter VGA_BITS = 8) (
   power_on_reset por(clk, reset);
     
   // microprocessor
-  riscvmulti cpu(clk, reset, addr, writedata, memwrite, readdata);
+  // CORREÇÃO: Usando instanciação por nome para evitar erros de ordem
+  // e adicionando as portas rstrb e wmask.
+  riscvmulti cpu (
+      .clk(clk),
+      .reset(reset),
+      .Address(addr),
+      .WriteData(writedata),
+      .MemWrite(memwrite),
+      .ReadData(readdata),
+      .mem_rstrb(mem_rstrb), // Sinal de leitura (não usado na mem atual, mas necessário na CPU)
+      .mem_wmask(mem_wmask)  // Máscara de escrita (bytes/halfwords)
+  );
 
   // memory 
+  // NOTA: Se sua memória 'mem' suportar escrita por byte (sb), 
+  // você precisará passar o 'mem_wmask' para ela no futuro.
   mem ram(clk, memwrite, addr, writedata, readdata, 'h200 + vaddr, vdata);
 
   // VGA controller
