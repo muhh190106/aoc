@@ -10,7 +10,7 @@ VIEWER=code
 # https://drom.io/vcd/?github=menotti/up1/master/processor/dump.vcd
 
 # Toolchain
-CROSS   = riscv64-unknown-elf
+CROSS   = riscv64-linux-gnu
 AS      = $(CROSS)-as
 LD      = $(CROSS)-ld
 OBJCOPY = $(CROSS)-objcopy
@@ -18,7 +18,10 @@ OBJDUMP = $(CROSS)-objdump
 
 # Arquivos
 LDS    = riscv.ld
+#SRC    = static.asm
 SRC    = riscv.asm
+#SRC    = increment.asm
+
 OBJ    = $(SRC:.asm=.o)
 ELF    = riscv.elf
 LST    = riscv.lst

@@ -35,7 +35,7 @@ module vga #(
         CounterY <= CounterY + 1'b1;
 
     vga_DA <= (CounterX < WIDTH) && (CounterY < HEIGHT);
-    vga_HS <= HPULSEN[0] ^ (CounterX > ( WIDTH + HFRONT) && (CounterX < ( WIDTH + HFRONT + HSYNC)));
-    vga_VS <= VPULSEN[0] ^ (CounterY > (HEIGHT + VFRONT) && (CounterY < (HEIGHT + VFRONT + VSYNC)));
+    vga_HS <= HPULSEN[0] ^ (CounterX >= (WIDTH + HFRONT) && (CounterX < (WIDTH + HFRONT + HSYNC)));
+    vga_VS <= VPULSEN[0] ^ (CounterY >= (HEIGHT + VFRONT) && (CounterY < (HEIGHT + VFRONT + VSYNC)));
   end
 endmodule

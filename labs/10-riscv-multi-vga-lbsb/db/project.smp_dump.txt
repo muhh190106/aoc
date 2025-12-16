@@ -1,0 +1,10 @@
+
+State Machine - |top|riscvmulti:cpu|state
+Name state.STORE state.WAIT_DATA state.LOAD state.EXECUTE state.FETCH_REGS state.WAIT_INSTR state.FETCH_INSTR 
+state.FETCH_INSTR 0 0 0 0 0 0 0 
+state.WAIT_INSTR 0 0 0 0 0 1 1 
+state.FETCH_REGS 0 0 0 0 1 0 1 
+state.EXECUTE 0 0 0 1 0 0 1 
+state.LOAD 0 0 1 0 0 0 1 
+state.WAIT_DATA 0 1 0 0 0 0 1 
+state.STORE 1 0 0 0 0 0 1 

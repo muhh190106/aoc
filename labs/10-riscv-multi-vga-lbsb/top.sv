@@ -1,4 +1,4 @@
-module top #(parameter VGA_BITS = 8) (
+module top #(parameter VGA_BITS = 4) (
   input CLOCK_50, // 50MHz
   input [9:0] SW,
   output reg [9:0] LEDR,
@@ -8,14 +8,11 @@ module top #(parameter VGA_BITS = 8) (
   output reg VGA_CLK = 0,
   output VGA_BLANK_N, VGA_SYNC_N);
 
-  wire VGA_DA; // In display area
-  
-  wire memwrite, clk, reset;
-  
-  // NOVOS FIOS PARA AS PORTAS QUE FALTAVAM
   wire mem_rstrb;
+  wire VGA_DA; // In display area
   wire [3:0] mem_wmask;
-
+  wire memwrite, clk, reset;
+  wire [31:0] pc, instr;
   wire [31:0] writedata, addr, readdata;
   wire [31:0] vaddr, vdata;
   wire [ 7:0] vbyte = vaddr[1] ? (vaddr[0] ? vdata[31:24] : vdata[23:16])
@@ -34,33 +31,11 @@ module top #(parameter VGA_BITS = 8) (
   `endif
 
   // power-on reset
-  power_on_reset por(clk, reset);
-    
-  // microprocessor
-  // CORREÇÃO: Usando instanciação por nome para evitar erros de ordem
-  // e adicionando as portas rstrb e wmask.
-  riscvmulti cpu (
-      .clk(clk),
-      .reset(reset),
-      .Address(addr),
-      .WriteData(writedata),
-      .MemWrite(memwrite),
-      .ReadData(readdata),
-      .mem_rstrb(mem_rstrb), // Sinal de leitura (não usado na mem atual, mas necessário na CPU)
-      .mem_wmask(mem_wmask)  // Máscara de escrita (bytes/halfwords)
-  );
 
-  // memory 
-  // NOTA: Se sua memória 'mem' suportar escrita por byte (sb), 
-  // você precisará passar o 'mem_wmask' para ela no futuro.
-  mem ram(clk, memwrite, addr, writedata, readdata, 'h200 + vaddr, vdata);
-
-  // VGA controller
-  vga gpu(VGA_CLK, reset, VGA_HS, VGA_VS, VGA_DA, vaddr);
 
   // memory-mapped i/o
   wire isIO  = addr[8]; // 0x0000_0100
-  wire isRAM = !isIO;
+  wire isRAM = !isIO; // six seven 6 7
   localparam IO_LEDS_bit = 2; // 0x0000_0104
   localparam IO_HEX_bit  = 3; // 0x0000_0108
   reg [23:0] hex_digits; // memory-mapped I/O register for HEX
@@ -83,4 +58,15 @@ module top #(parameter VGA_BITS = 8) (
   assign VGA_B = VGA_DA ? {vbyte[1:0], fill} : 0;
   assign VGA_BLANK_N = 1'b1;
   assign VGA_SYNC_N  = 1'b0;
+
+  power_on_reset por(clk, reset);
+    
+  // microprocessor
+  riscvmulti cpu(clk, reset, addr, writedata, memwrite, readdata, mem_rstrb, mem_wmask);
+
+  // memory 
+  mem ram(clk, memwrite, addr, writedata, readdata, 'h200 + vaddr, vdata, isRAM & mem_rstrb, {4{isRAM}}&mem_wmask, VGA_CLK);
+
+  // VGA controller
+  vga gpu(VGA_CLK, reset, VGA_HS, VGA_VS, VGA_DA, vaddr);
 endmodule

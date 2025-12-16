@@ -37,12 +37,362 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Cyclone V"
-set_global_assignment -name DEVICE AUTO
 set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:25:49  NOVEMBER 07, 2025"
-set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"# These are the pin assignments for the Altera DE0-CV
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+
+set_global_assignment -name FIT_ONLY_ONE_ATTEMPT ON
+set_global_assignment -name FITTER_EFFORT "FAST FIT"# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
+
+
+
+
+
+
+
+
+
+# These are the pin assignments for the Altera DE0-CV
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CEBA4F23C7

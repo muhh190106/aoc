@@ -5,39 +5,104 @@ riscv.elf:     file format elf32-littleriscv
 Disassembly of section .text:
 
 00000000 <_start>:
-   0:	20000413          	li	s0,512
-   4:	32c00493          	li	s1,812
-   8:	10c00913          	li	s2,268
-
-0000000c <render_loop>:
-   c:	00945c63          	bge	s0,s1,24 <end>
-  10:	00040283          	lb	t0,0(s0)
-  14:	00590023          	sb	t0,0(s2)
-  18:	00140413          	addi	s0,s0,1
-  1c:	00190913          	addi	s2,s2,1
-  20:	fedff06f          	j	c <render_loop>
-
-00000024 <end>:
-  24:	0000006f          	j	24 <end>
+   0:	20000513          	li	a0,512
+   4:	32c00593          	li	a1,812
+   8:	00050283          	lb	t0,0(a0)
+   c:	00150303          	lb	t1,1(a0)
+  10:	00250383          	lb	t2,2(a0)
+  14:	00350e03          	lb	t3,3(a0)
+  18:	01c501a3          	sb	t3,3(a0)
+  1c:	00750123          	sb	t2,2(a0)
+  20:	006500a3          	sb	t1,1(a0)
+  24:	00550023          	sb	t0,0(a0)
 
 Disassembly of section .data:
 
 00000200 <frame_buffer>:
- 200:	ff300c03          	lb	s8,-13(zero) # fffffff3 <frame_end+0xfffffcc7>
- 204:	333c                	.insn	2, 0x333c
- 206:	aaaa000f          	.insn	4, 0xaaaa000f
- 20a:	aaaa                	.insn	2, 0xaaaa
- 20c:	333c                	.insn	2, 0x333c
- 20e:	0c03000f          	.insn	4, 0x0c03000f
- 212:	ff30                	.insn	2, 0xff30
-	...
- 318:	ff300c03          	lb	s8,-13(zero) # fffffff3 <frame_end+0xfffffcc7>
- 31c:	333c                	.insn	2, 0x333c
- 31e:	aaaa000f          	.insn	4, 0xaaaa000f
- 322:	aaaa                	.insn	2, 0xaaaa
- 324:	333c                	.insn	2, 0x333c
- 326:	0c03000f          	.insn	4, 0x0c03000f
- 32a:	ff30                	.insn	2, 0xff30
+ 200:	00ff ffff 00ff 00ff 	.insn	10, 0x00ff00ffffff00ff
+ 208:	0000 
+ 20a:	00ff ffff ff00 ffff 	.insn	10, 0xffffffffff00ffff00ff
+ 212:	ffff 
+ 214:	00ff ff00 0000 00ff 	.insn	10, 0xffff00ff0000ff0000ff
+ 21c:	ffff 
+ 21e:	00ff ff00 ff00 ffff 	.insn	10, 0xffffffffff00ff0000ff
+ 226:	ffff 
+ 228:	00ff 00ff 00ff 00ff 	.insn	10, 0xff0000ff00ff00ff00ff
+ 230:	ff00 
+ 232:	00ff 00ff ff00 ffff 	.insn	10, 0xffffffffff0000ff00ff
+ 23a:	ffff 
+ 23c:	00ff ffff 00ff 00ff 	.insn	10, 0xffff00ff00ffffff00ff
+ 244:	ffff 
+ 246:	00ff ffff ff00 ffff 	.insn	10, 0xffffffffff00ffff00ff
+ 24e:	ffff 
+ 250:	00ff ffff 00ff 00ff 	.insn	10, 0x00ff00ffffff00ff
+ 258:	0000 
+ 25a:	00ff ffff ff00 ffff 	.insn	10, 0xffffffffff00ffff00ff
+ 262:	ffff 
+ 264:	ffff                	.insn	2, 0xffff
+ 266:	ffff                	.insn	2, 0xffff
+ 268:	ffff                	.insn	2, 0xffff
+ 26a:	ffff                	.insn	2, 0xffff
+ 26c:	ffff                	.insn	2, 0xffff
+ 26e:	ffff                	.insn	2, 0xffff
+ 270:	ffff                	.insn	2, 0xffff
+ 272:	ffff                	.insn	2, 0xffff
+ 274:	ffff                	.insn	2, 0xffff
+ 276:	ffff                	.insn	2, 0xffff
+ 278:	00ff 0000 0000 00ff 	.insn	10, 0x00ff0000000000ff
+ 280:	0000 
+ 282:	00ff 0000 00ff ffff 	.insn	10, 0xffffffff00ff000000ff
+ 28a:	ffff 
+ 28c:	00ff ffff 00ff ffff 	.insn	10, 0xff00ffff00ffffff00ff
+ 294:	ff00 
+ 296:	ffff                	.insn	2, 0xffff
+ 298:	ff00                	.insn	2, 0xff00
+ 29a:	ffff                	.insn	2, 0xffff
+ 29c:	ffff                	.insn	2, 0xffff
+ 29e:	ffff                	.insn	2, 0xffff
+ 2a0:	00ff ffff 00ff ffff 	.insn	10, 0xff00ffff00ffffff00ff
+ 2a8:	ff00 
+ 2aa:	ffff                	.insn	2, 0xffff
+ 2ac:	ff00                	.insn	2, 0xff00
+ 2ae:	00ff ffff ffff 00ff 	.insn	10, 0xffff00ffffffffff00ff
+ 2b6:	ffff 
+ 2b8:	00ff ffff ff00 ffff 	.insn	10, 0xff00ffffff00ffff00ff
+ 2c0:	ff00 
+ 2c2:	00ff ffff ffff 00ff 	.insn	10, 0x00ffffffffff00ff
+ 2ca:	0000 
+ 2cc:	0000                	.insn	2, 0x
+ 2ce:	ffff                	.insn	2, 0xffff
+ 2d0:	ff00                	.insn	2, 0xff00
+ 2d2:	ffff                	.insn	2, 0xffff
+ 2d4:	ff00                	.insn	2, 0xff00
+ 2d6:	00ff ffff ffff ffff 	.insn	10, 0xffffffffffffffff00ff
+ 2de:	ffff 
+ 2e0:	ffff                	.insn	2, 0xffff
+ 2e2:	ffff                	.insn	2, 0xffff
+ 2e4:	30ff30ff ffffffff 	.insn	16, 0xffffffffffffffffffffffff30ff30ff
+ 2ec:	ffffffff ffffffff 
+ 2f4:	ffff                	.insn	2, 0xffff
+ 2f6:	ffff                	.insn	2, 0xffff
+ 2f8:	3030                	.insn	2, 0x3030
+ 2fa:	3030                	.insn	2, 0x3030
+ 2fc:	ff30                	.insn	2, 0xff30
+ 2fe:	ffff                	.insn	2, 0xffff
+ 300:	ffff                	.insn	2, 0xffff
+ 302:	ffff                	.insn	2, 0xffff
+ 304:	ffff                	.insn	2, 0xffff
+ 306:	ffff                	.insn	2, 0xffff
+ 308:	ffff                	.insn	2, 0xffff
+ 30a:	ffff                	.insn	2, 0xffff
+ 30c:	303030ff ffffffff 	.insn	16, 0xffffffffffffffffffffffff303030ff
+ 314:	ffffffff ffffffff 
+ 31c:	ffff                	.insn	2, 0xffff
+ 31e:	ffff                	.insn	2, 0xffff
+ 320:	ffff                	.insn	2, 0xffff
+ 322:	ff30                	.insn	2, 0xff30
+ 324:	ffff                	.insn	2, 0xffff
+ 326:	ffff                	.insn	2, 0xffff
+ 328:	ffff                	.insn	2, 0xffff
+ 32a:	ffff                	.insn	2, 0xffff
 
 Disassembly of section .riscv.attributes:
 
@@ -46,10 +111,10 @@ Disassembly of section .riscv.attributes:
    2:	0000                	.insn	2, 0x
    4:	7200                	.insn	2, 0x7200
    6:	7369                	.insn	2, 0x7369
-   8:	01007663          	bgeu	zero,a6,14 <render_loop+0x8>
+   8:	01007663          	bgeu	zero,a6,14 <_start+0x14>
    c:	0000000f          	fence	unknown,unknown
   10:	7205                	.insn	2, 0x7205
   12:	3376                	.insn	2, 0x3376
   14:	6932                	.insn	2, 0x6932
   16:	7032                	.insn	2, 0x7032
-  18:	0031                	.insn	2, 0x0031
+  18:	0030                	.insn	2, 0x0030

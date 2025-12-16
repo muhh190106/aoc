@@ -80,4 +80,4 @@ Total registers : 350
 Total pins : 92 / 224 ( 41 % )
 Total block memory bits : 16,384 / 3,153,920 ( < 1 % )
 Total RAM Blocks : 4 / 308 ( 1 % )
-```
+```# Laboratorio10
